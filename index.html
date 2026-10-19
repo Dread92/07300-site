@@ -3,69 +3,321 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="07300 — громадська організація. Сайт у розробці. / NGO 07300. Website in progress.">
-<meta name="theme-color" content="#0057b8">
-<link rel="icon" type="image/webp" href="data:image/webp;base64,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">
-<title>07300</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&display=swap">
+<meta name="description" content="ГО «07300 — Люди для людей», Вишгород. Гуманітарна логістика, доставка спецтехніки та допомога громадам.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0b1322">
+<link rel="icon" id="favicon" href="data:image/webp;base64,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">
+<title>ГО 07300 — Люди для людей</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Golos+Text:wght@400;500;600&display=swap">
+<!--
+  Photos (optional — the page is complete without them; drop the files in and they appear):
+    img/hero.jpg                  hero background, ~1800×1000
+    img/logistics.jpg             card "Логістика та спецтехніка", ~1200×800
+    img/aid.jpg                   card "Гуманітарна допомога", ~1200×800
+    img/gallery/01.jpg … 06.jpg   gallery — the section shows up only when at least one photo exists
+  Donations: the PayPal address lives in #support (the button copies it). Bank details: replace the "незабаром" card.
+-->
 <style>
-/* Layout: the flag itself — blue, the grey band carrying the mark, yellow — one screen, the words on the band. */
-:root{--blue:#0057b8;--yellow:#fcfe38;--grey:#c0c0c0;--ink:#1f0276;--ink-blue:#ffffff;--ink-yellow:#1f0276;--line:#9a9a9a;
-      --display:"Archivo Black","Arial Black",Arial,sans-serif;--sans:Archivo,"Segoe UI",system-ui,sans-serif}
-html,body{height:100%}
-body{margin:0;background:var(--blue);color:var(--ink);font:16px/1.5 var(--sans);display:flex;flex-direction:column;min-height:100%}
-.band{flex:1 1 33%;display:flex;align-items:center;justify-content:center;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:18px}
-.top{background:var(--blue);color:var(--ink-blue);flex-direction:column;gap:10px;text-align:center}
-.mid{background:var(--grey);flex:0 0 auto;flex-direction:column;gap:14px;padding-block:26px}
-.bot{background:var(--yellow);color:var(--ink-yellow);flex-direction:column;gap:12px;text-align:center}
-.mark{font:400 clamp(72px,22vw,160px)/1 var(--display);letter-spacing:.02em;color:var(--ink);font-variant-numeric:tabular-nums;margin:0}
-.lang{display:flex;gap:0;border:2px solid var(--ink-blue);border-radius:2px;overflow:hidden;font:600 13px/1 var(--sans);letter-spacing:.08em}
-.lang button{border:0;background:transparent;color:var(--ink-blue);padding:8px 14px;cursor:pointer;font:inherit}
-.lang button[aria-pressed="true"]{background:var(--ink-blue);color:var(--blue)}
-.lang button:focus-visible{outline:3px solid var(--yellow);outline-offset:-3px}
-.eyebrow{font:600 13px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;margin:0;opacity:.92}
-h1{font:400 clamp(22px,4.4vw,34px)/1.15 var(--display);margin:0;text-wrap:balance;max-width:22ch}
-.mid p:not(.mark){margin:0;max-width:52ch;text-align:center;color:#2a2a2a;font-size:17px}
-.status{display:inline-flex;align-items:center;gap:10px;font:600 14px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);border:2px solid var(--ink);border-radius:2px;padding:9px 14px}
-.status i{width:10px;height:10px;border-radius:50%;background:var(--ink);display:inline-block}
-@media (prefers-reduced-motion:no-preference){.status i{animation:blink 1.6s ease-in-out infinite}@keyframes blink{50%{opacity:.25}}}
-.cta{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;font:400 18px/1 var(--display);letter-spacing:.04em;padding:16px 26px;border-radius:2px}
-.cta:hover,.cta:focus-visible{background:#2d0f99;outline:none}
-.cta:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-.note{font-size:14px;max-width:48ch;margin:0;opacity:.9}
-.foot{font-size:13px;margin:0;opacity:.8}
+/* Layout: one dark column; the flag appears only as two accents — the yellow second line of the title and the blue/yellow rule under each heading.
+   Photos sit in fixed-ratio slots that fall back to a navy panel, so the page is whole with or without them. */
+:root{
+  --bg:#0b1322;--bg2:#111c30;--bg3:#172440;--line:#243352;--line2:#2f4066;
+  --fg:#eef2f8;--fg2:#aab5c8;--fg3:#7b89a3;
+  --yellow:#ffd500;--yellow-ink:#1a1500;--blue-deep:#0057b8;
+  --display:"Unbounded","Arial Black",Arial,sans-serif;
+  --sans:"Golos Text","Segoe UI",system-ui,Roboto,sans-serif;
+  --wrap:1120px;--r:6px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:rgba(11,19,34,.84);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:18px;min-height:64px;padding-block:8px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:none}
+.brand img{width:40px;height:40px;border-radius:50%}
+.brand b{display:block;font:800 15px/1.1 var(--display);letter-spacing:.02em}
+.brand small{display:block;font:500 12px/1.2 var(--sans);color:var(--fg2);letter-spacing:.04em}
+nav{display:flex;gap:4px;margin-left:auto;overflow-x:auto;max-width:100%;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{text-decoration:none;color:var(--fg2);font:500 14px/1 var(--sans);padding:10px 10px;border-radius:var(--r);white-space:nowrap}
+nav a:hover,nav a:focus-visible{color:var(--fg);background:var(--bg3)}
+.lang{display:flex;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;font:600 12px/1 var(--sans);letter-spacing:.08em;flex:none}
+.lang button{border:0;background:transparent;color:var(--fg2);padding:9px 11px;cursor:pointer;font:inherit}
+.lang button[aria-pressed="true"]{background:var(--yellow);color:var(--yellow-ink)}
+.lang button:focus-visible{outline-offset:-2px}
+@media (max-width:720px){
+  .top .wrap{gap:10px}
+  nav{order:3;flex-basis:100%;margin-left:-10px;padding-bottom:2px}
+  .brand small{display:none}
+}
+
+/* hero */
+.hero{position:relative;isolation:isolate;overflow:hidden;background:var(--bg2);border-bottom:1px solid var(--line)}
+.hero .photo{position:absolute;inset:0;z-index:-2}
+.hero .photo img{width:100%;height:100%;object-fit:cover;object-position:center;opacity:.55}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(11,19,34,.55) 0%,rgba(11,19,34,.35) 45%,rgba(11,19,34,.95) 100%)}
+.hero.nophoto{background:radial-gradient(120% 90% at 70% 10%,#1b3a6b 0%,var(--bg2) 55%,var(--bg) 100%)}
+.hero.nophoto::after{content:"07300";position:absolute;right:-.06em;bottom:-.2em;z-index:-1;font:800 clamp(140px,28vw,360px)/1 var(--display);color:#fff;opacity:.04;letter-spacing:-.02em;pointer-events:none}
+.hero .wrap{padding-block:clamp(56px,10vw,120px) clamp(48px,8vw,96px);display:grid;gap:22px;max-width:900px;margin:0}
+.eyebrow{font:600 12px/1.3 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--fg2)}
+.hero h1{font:800 clamp(32px,7vw,76px)/1.04 var(--display);letter-spacing:-.01em;text-transform:uppercase}
+.hero h1 span{display:block}
+.hero h1 .y{color:var(--yellow)}
+.lead{font:400 clamp(17px,2.1vw,21px)/1.5 var(--sans);color:var(--fg2);max-width:34em}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:600 15px/1 var(--sans);padding:15px 22px;border-radius:var(--r);border:1px solid transparent;transition:transform .12s ease,background .12s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn.y{background:var(--yellow);color:var(--yellow-ink)}
+.btn.y:hover{background:#ffe04a}
+.btn.o{border-color:var(--line2);color:var(--fg)}
+.btn.o:hover{background:var(--bg3)}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
+@media (min-width:1120px){.hero .wrap{margin:0 auto;max-width:var(--wrap)}.hero .wrap>*{max-width:900px}}
+
+/* sections */
+section{padding-block:clamp(56px,8vw,96px)}
+section+section{border-top:1px solid var(--line)}
+.head{display:grid;gap:10px;margin-bottom:clamp(26px,4vw,40px)}
+.head h2{font:700 clamp(24px,3.6vw,38px)/1.1 var(--display);letter-spacing:-.005em}
+.head .rule{width:56px;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--blue-deep) 0 50%,var(--yellow) 50% 100%)}
+
+/* about */
+.about{display:grid;gap:36px;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:start}
+.about .text{display:grid;gap:16px;font-size:17px;color:var(--fg2);max-width:62ch}
+.facts{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.fact{background:var(--bg2);padding:18px 20px;display:grid;gap:4px}
+.fact b{font:800 26px/1 var(--display);color:var(--fg);letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.fact span{font-size:14px;color:var(--fg2)}
+@media (max-width:820px){.about{grid-template-columns:1fr}}
+
+/* directions */
+.dirs{display:grid;gap:22px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.dir{display:grid;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--bg2)}
+.slot{position:relative;aspect-ratio:3/2;max-width:100%;background:linear-gradient(135deg,#17305a 0%,var(--bg3) 60%,var(--bg2) 100%);overflow:hidden}
+.slot img{width:100%;height:100%;object-fit:cover}
+.slot svg{position:absolute;right:-6%;bottom:-12%;width:52%;height:auto;opacity:.14;color:#fff}
+.slot img+svg{display:none}
+.dir .body{padding:22px 22px 24px;display:grid;gap:10px;border-top:3px solid var(--blue-deep)}
+.dir:nth-child(2) .body{border-top-color:var(--yellow)}
+.dir h3{font:700 20px/1.2 var(--display)}
+.dir p{color:var(--fg2)}
+@media (max-width:720px){.dirs{grid-template-columns:1fr}}
+
+/* gallery */
+.grid{display:grid;gap:12px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid figure{margin:0;aspect-ratio:4/3;max-width:100%;border-radius:var(--r);overflow:hidden;background:var(--bg2)}
+.grid img{width:100%;height:100%;object-fit:cover}
+@media (max-width:720px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* support */
+.support{display:grid;gap:18px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.card{border:1px solid var(--line);border-radius:var(--r);background:var(--bg2);padding:22px;display:grid;gap:12px;min-width:0;align-content:start}
+.card .k{font:600 12px/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--fg3)}
+.card .v{font:600 clamp(17px,2.4vw,22px)/1.3 var(--sans);overflow-wrap:anywhere;color:var(--fg)}
+.card.pay{border-color:var(--yellow);box-shadow:inset 0 0 0 1px rgba(255,213,0,.25);gap:14px}
+.card .pp{justify-self:start;font-size:16px;padding:16px 24px}
+.card .hint{color:var(--fg2);font-size:14px}
+.card .v.small{font-size:16px;font-weight:500;color:var(--fg2)}
+.card .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px}
+.copy{border:1px solid var(--line2);background:var(--bg3);color:var(--fg);font:600 14px/1 var(--sans);padding:11px 14px;border-radius:var(--r);cursor:pointer}
+.copy:hover{background:var(--line2)}
+.copy.ok{border-color:var(--yellow);color:var(--yellow)}
+.muted{color:var(--fg3)}
+.note{margin-top:18px;color:var(--fg2);font-size:15px}
+@media (max-width:720px){.support{grid-template-columns:1fr}}
+
+/* contacts */
+.contacts{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.ct{display:grid;gap:6px;padding:18px 20px;border:1px solid var(--line);border-radius:var(--r);background:var(--bg2);min-width:0}
+.ct .k{font:600 12px/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--fg3)}
+.ct a,.ct .v{font:500 17px/1.4 var(--sans);text-decoration:none;color:var(--fg);overflow-wrap:anywhere}
+.ct a:hover{color:var(--yellow)}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding-block:26px 34px;color:var(--fg3);font-size:14px}
+footer .wrap{display:flex;gap:10px 24px;flex-wrap:wrap;justify-content:space-between}
+footer a{color:var(--fg2);text-decoration:none}
+footer a:hover{color:var(--yellow)}
 </style>
 </head>
 <body>
-<section class="band top">
-  <div class="lang" role="group" aria-label="Мова / Language">
-    <button type="button" data-lang="uk" aria-pressed="true">UA</button>
-    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="07300">
+      <img id="brandmark" src="" alt="" width="40" height="40">
+      <span><b>ГО 07300</b><small data-uk="Люди для людей" data-en="People for people">Люди для людей</small></span>
+    </a>
+    <nav aria-label="Розділи">
+      <a href="#about" data-uk="Про нас" data-en="About">Про нас</a>
+      <a href="#work" data-uk="Напрямки" data-en="What we do">Напрямки</a>
+      <a href="#gallery" id="navgal" hidden data-uk="Галерея" data-en="Gallery">Галерея</a>
+      <a href="#support" data-uk="Підтримати" data-en="Support">Підтримати</a>
+      <a href="#contacts" data-uk="Контакти" data-en="Contacts">Контакти</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Мова / Language">
+      <button type="button" data-lang="uk" aria-pressed="true">UA</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
   </div>
-  <p class="eyebrow" data-uk="Громадська організація" data-en="Non-governmental organisation">Громадська організація</p>
-  <h1 data-uk="Гуманітарна допомога там, де вона потрібна" data-en="Humanitarian aid where it is needed">Гуманітарна допомога там, де вона потрібна</h1>
-</section>
-<section class="band mid">
-  <p class="mark" aria-label="07300">07300</p>
-  <span class="status"><i aria-hidden="true"></i><span data-uk="Сайт у розробці" data-en="Website in progress">Сайт у розробці</span></span>
-  <p data-uk="Повна сторінка — про нас, наші проєкти та як долучитися — з’явиться тут незабаром." data-en="The full page — who we are, what we do and how to join — will appear here soon.">Повна сторінка — про нас, наші проєкти та як долучитися — з’явиться тут незабаром.</p>
-</section>
-<section class="band bot">
-  <a class="cta" id="support" href="#" data-uk="Підтримати" data-en="Support us">Підтримати</a>
-  <p class="note" data-uk="Кожен внесок іде на конкретну потребу." data-en="Every contribution goes to a concrete need.">Кожен внесок іде на конкретну потребу.</p>
-  <p class="foot">© 2026 07300 · 07300.org.ua</p>
-</section>
+</header>
+
+<main id="top">
+  <section class="hero" id="hero">
+    <div class="photo"><img src="img/hero.jpg" alt="" onerror="document.getElementById('hero').classList.add('nophoto');this.remove()"></div>
+    <div class="wrap">
+      <p class="eyebrow" data-uk="Громадська організація · Вишгород · з 2014 року" data-en="Non-governmental organisation · Vyshhorod · since 2014">Громадська організація · Вишгород · з 2014 року</p>
+      <h1><span data-uk="ГО 07300" data-en="07300 NGO">ГО 07300</span><span class="y" data-uk="Люди для людей" data-en="People for people">Люди для людей</span></h1>
+      <p class="lead" data-uk="Міжнародна гуманітарна логістика, доставка спецтехніки та допомога громадам." data-en="International humanitarian logistics, delivery of special vehicles and support for communities.">Міжнародна гуманітарна логістика, доставка спецтехніки та допомога громадам.</p>
+      <div class="cta">
+        <a class="btn y" href="#support" data-uk="Підтримати" data-en="Support us">Підтримати</a>
+        <a class="btn o" href="#contacts" data-uk="Контакти" data-en="Contacts">Контакти</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="head"><h2 data-uk="Про нас" data-en="About us">Про нас</h2><div class="rule"></div></div>
+      <div class="about">
+        <div class="text">
+          <p data-uk="«07300 — Люди для людей» — громадська організація з Вишгорода, заснована 2014 року. Назва — це поштовий індекс нашого міста." data-en="“07300 — People for People” is a non-governmental organisation from Vyshhorod, founded in 2014. The name is our town's postal code.">«07300 — Люди для людей» — громадська організація з Вишгорода, заснована 2014 року. Назва — це поштовий індекс нашого міста.</p>
+          <p data-uk="Ми шукаємо, доставляємо та передаємо автомобілі, спецтранспорт і обладнання, допомагаємо громадам і постраждалим регіонам та координуємо волонтерів. Працюємо на Київщині — Вишгород, Київ, Буча, Гостомель — разом із партнерами в Україні та за кордоном." data-en="We source, deliver and hand over vehicles, special transport and equipment, support communities and affected regions, and coordinate volunteers. We work across the Kyiv region — Vyshhorod, Kyiv, Bucha, Hostomel — with partners in Ukraine and abroad.">Ми шукаємо, доставляємо та передаємо автомобілі, спецтранспорт і обладнання, допомагаємо громадам і постраждалим регіонам та координуємо волонтерів. Працюємо на Київщині — Вишгород, Київ, Буча, Гостомель — разом із партнерами в Україні та за кордоном.</p>
+        </div>
+        <div class="facts">
+          <div class="fact"><b>2014</b><span data-uk="рік заснування" data-en="founded">рік заснування</span></div>
+          <div class="fact"><b>07300</b><span data-uk="поштовий індекс Вишгорода — звідси назва" data-en="Vyshhorod's postal code — hence the name">поштовий індекс Вишгорода — звідси назва</span></div>
+          <div class="fact"><b data-uk="Київщина" data-en="Kyiv region">Київщина</b><span data-uk="Вишгород · Київ · Буча · Гостомель" data-en="Vyshhorod · Kyiv · Bucha · Hostomel">Вишгород · Київ · Буча · Гостомель</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="head"><h2 data-uk="Напрямки роботи" data-en="What we do">Напрямки роботи</h2><div class="rule"></div></div>
+      <div class="dirs">
+        <article class="dir">
+          <div class="slot">
+            <img src="img/logistics.jpg" alt="" onerror="this.remove()">
+            <svg viewBox="0 0 64 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M3 8h34v20H3zM37 14h12l8 8v6H37z"/><circle cx="13" cy="31" r="4.5"/><circle cx="46" cy="31" r="4.5"/></svg>
+          </div>
+          <div class="body">
+            <h3 data-uk="Логістика та спецтехніка" data-en="Logistics and special vehicles">Логістика та спецтехніка</h3>
+            <p data-uk="Пошук, доставка та передача автомобілів, спецтранспорту та обладнання." data-en="Sourcing, delivering and handing over vehicles, special transport and equipment.">Пошук, доставка та передача автомобілів, спецтранспорту та обладнання.</p>
+          </div>
+        </article>
+        <article class="dir">
+          <div class="slot">
+            <img src="img/aid.jpg" alt="" onerror="this.remove()">
+            <svg viewBox="0 0 64 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M8 18l24-10 24 10v24H8z"/><path d="M8 18l24 10 24-10M32 28v14"/><path d="M26 6v10M38 6v10"/></svg>
+          </div>
+          <div class="body">
+            <h3 data-uk="Гуманітарна допомога" data-en="Humanitarian aid">Гуманітарна допомога</h3>
+            <p data-uk="Забезпечення громад і постраждалих регіонів, координація волонтерів." data-en="Supplies for communities and affected regions, coordination of volunteers.">Забезпечення громад і постраждалих регіонів, координація волонтерів.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" hidden>
+    <div class="wrap">
+      <div class="head"><h2 data-uk="Галерея" data-en="Gallery">Галерея</h2><div class="rule"></div></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="support">
+    <div class="wrap">
+      <div class="head"><h2 data-uk="Підтримати проєкт" data-en="Support the project">Підтримати проєкт</h2><div class="rule"></div></div>
+      <div class="support">
+        <div class="card pay">
+          <div class="k">PayPal</div>
+          <a class="btn y pp" href="https://www.paypal.com/donate/?hosted_button_id=2KGHU5SWLAALE" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-9.2-9A5 5 0 0 1 12 6.3 5 5 0 0 1 21.2 12C19 16.4 12 21 12 21z"/></svg>
+            <span data-uk="Підтримати через PayPal" data-en="Donate with PayPal">Підтримати через PayPal</span>
+          </a>
+          <p class="hint" data-uk="Разово або щомісяця, з рахунку PayPal або банківською карткою." data-en="One-off or monthly, from a PayPal account or by bank card.">Разово або щомісяця, з рахунку PayPal або банківською карткою.</p>
+          <div class="row">
+            <div class="v small" id="paypal">nomakievip@gmail.com</div>
+            <button type="button" class="copy" id="copybtn" data-uk="Скопіювати" data-en="Copy" data-done-uk="Скопійовано" data-done-en="Copied">Скопіювати</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="k" data-uk="Банківські реквізити" data-en="Bank details">Банківські реквізити</div>
+          <div class="v muted" data-uk="незабаром" data-en="coming soon">незабаром</div>
+        </div>
+      </div>
+      <p class="note" data-uk="Кожен внесок іде на конкретну потребу." data-en="Every contribution goes to a concrete need.">Кожен внесок іде на конкретну потребу.</p>
+    </div>
+  </section>
+
+  <section id="contacts">
+    <div class="wrap">
+      <div class="head"><h2 data-uk="Контакти" data-en="Contacts">Контакти</h2><div class="rule"></div></div>
+      <div class="contacts">
+        <div class="ct"><span class="k" data-uk="Телефон" data-en="Phone">Телефон</span><a href="tel:+380932583366">+380 93 258 3366</a></div>
+        <div class="ct"><span class="k">E-mail</span><a href="mailto:07300dozor@gmail.com">07300dozor@gmail.com</a></div>
+        <div class="ct"><span class="k">Facebook</span><a href="https://www.facebook.com/Vyshgorod" rel="noopener">facebook.com/Vyshgorod</a></div>
+        <div class="ct"><span class="k" data-uk="Адреса" data-en="Address">Адреса</span><span class="v" data-uk="Вишгород, Київська область, 07300, Україна" data-en="Vyshhorod, Kyiv region, 07300, Ukraine">Вишгород, Київська область, 07300, Україна</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-uk="© 2026 ГО «07300 — Люди для людей» · 07300.org.ua" data-en="© 2026 07300 — People for People NGO · 07300.org.ua">© 2026 ГО «07300 — Люди для людей» · 07300.org.ua</span>
+    <span><span data-uk="Сайт: " data-en="Website: ">Сайт: </span><a href="https://blackflamestudio.com" rel="noopener">Black Flame Studio</a></span>
+  </div>
+</footer>
+
 <script>
 (function(){
-  var SUPPORT_URL = "";   // ← the donation link goes here (left empty on purpose: nothing is invented)
-  var a = document.getElementById('support'); if (SUPPORT_URL) a.href = SUPPORT_URL; else { a.setAttribute('aria-disabled', 'true'); a.style.opacity = '.55'; a.addEventListener('click', function (e) { e.preventDefault(); }); }
-  function apply(l){ document.documentElement.lang = l; document.querySelectorAll('[data-uk]').forEach(function(e){ e.textContent = e.getAttribute('data-' + l) || e.textContent; });
+  /* the logo lives once, in the favicon link */
+  document.getElementById('brandmark').src = document.getElementById('favicon').href;
+
+  /* language: Ukrainian by default, remembered per browser */
+  function apply(l){
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-uk]').forEach(function(e){ e.textContent = e.getAttribute('data-' + l) || e.textContent; });
     document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.lang === l)); });
-    try { localStorage.setItem('lang', l); } catch (e) {} }
+    try { localStorage.setItem('lang', l); } catch (e) {}
+  }
   var l = 'uk'; try { l = localStorage.getItem('lang') || ((navigator.language || '').slice(0, 2) === 'uk' ? 'uk' : 'en'); } catch (e) {}
-  if (l !== 'uk' && l !== 'en') l = 'en';
+  if (l !== 'uk' && l !== 'en') l = 'uk';
   apply(l);
   document.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click', function(){ apply(b.dataset.lang); }); });
+
+  /* copy the PayPal address */
+  var btn = document.getElementById('copybtn'), val = document.getElementById('paypal');
+  btn.addEventListener('click', function(){
+    var cur = document.documentElement.lang, done = btn.getAttribute('data-done-' + cur), label = btn.getAttribute('data-' + cur);
+    function ok(){ btn.textContent = done; btn.classList.add('ok'); setTimeout(function(){ btn.textContent = label; btn.classList.remove('ok'); }, 1800); }
+    function fallback(){ var r = document.createRange(); r.selectNodeContents(val); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); try { document.execCommand('copy'); ok(); } catch (e) {} }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(val.textContent).then(ok, fallback); else fallback();
+  });
+
+  /* gallery: shown only when photos exist in img/gallery/ */
+  var grid = document.getElementById('grid'), sec = document.getElementById('gallery'), nav = document.getElementById('navgal');
+  for (var i = 1; i <= 6; i++) (function(n){
+    var img = new Image();
+    img.onload = function(){ var f = document.createElement('figure'); f.appendChild(img); grid.appendChild(f); sec.hidden = false; nav.hidden = false; };
+    img.alt = ''; img.src = 'img/gallery/0' + n + '.jpg';
+  })(i);
 })();
 </script>
 </body>
