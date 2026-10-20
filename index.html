@@ -290,10 +290,50 @@ footer a:hover{color:var(--yellow)}
 @media (max-width:380px){.st .s{padding:14px 10px}}
 
 /* Подяки: scans of letters and certificates, whole, tap to open */
-.thx{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
-.thx a{display:block;aspect-ratio:3/4;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--bg3)}
-.thx a:hover,.thx a:focus-visible{border-color:var(--yellow);outline:none}
-.thx img{width:100%;height:100%;object-fit:contain;display:block}
+.thx{display:grid;gap:16px 12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.thx figure{margin:0;display:grid;gap:8px;align-content:start}
+.thx .ph{aspect-ratio:3/4;border:1px solid var(--line)}
+.thx .ph img{object-fit:contain}
+.thx .ph:hover{border-color:var(--yellow)}
+.thx figcaption{display:grid;gap:2px;font-size:13px;line-height:1.35;color:var(--fg2)}
+.thx figcaption b{color:var(--fg);font-weight:600;font-size:14px}
+
+/* content from the admin (20 Oct 2026): photo buttons, news, blocks, project cards, the photo viewer */
+.ph{display:block;width:100%;aspect-ratio:4/3;padding:0;border:0;border-radius:var(--r);overflow:hidden;background:var(--bg3);cursor:zoom-in}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph:focus-visible{outline:2px solid var(--yellow);outline-offset:2px}
+.grid .ph{aspect-ratio:4/3}
+.pics{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
+.pics.big{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.minigal{margin-top:4px}
+.txt{display:grid;gap:10px}
+.txt p{margin:0}
+.newsl{display:grid;gap:14px}
+.nw{border:1px solid var(--line);border-radius:var(--r);background:var(--bg2);padding:20px 22px;display:grid;gap:10px;min-width:0}
+.nw time{font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--yellow)}
+.nw h3{font:700 clamp(18px,2.4vw,22px)/1.25 var(--display)}
+.nw .txt{color:var(--fg2);max-width:76ch}
+.more-news{justify-self:start;margin-top:14px}
+.blk .txt{color:var(--fg2);max-width:76ch;font-size:17px;gap:12px}
+.tp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,40px);align-items:center}
+.tp.right .tpi{order:2}
+.tpi .ph{aspect-ratio:auto}
+.tpi .ph img{height:auto}
+@media (max-width:820px){.tp{grid-template-columns:1fr}.tp.right .tpi{order:0}}
+.blk .btn{margin-top:20px}
+.projs{display:grid;gap:14px}
+.proj .mono{width:64px;height:64px;border-radius:14px;display:grid;place-items:center;background:var(--bg3);font:800 26px/1 var(--display);color:var(--yellow)}
+.proj .txt{color:var(--fg2);gap:6px}
+.lb{border:0;padding:0;margin:0;width:100vw;height:100vh;max-width:100vw;max-height:100vh;background:rgba(5,9,18,.97);color:var(--fg);overflow:hidden}
+.lb::backdrop{background:rgba(5,9,18,.6)}
+.lb[open]{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center}
+.lb figure{margin:0;display:grid;gap:12px;justify-items:center;align-content:center;padding:64px 8px 24px;max-height:100vh;min-width:0}
+.lb img{max-width:100%;max-height:calc(100vh - 150px);object-fit:contain;border-radius:var(--r);touch-action:pan-y}
+.lb figcaption{color:var(--fg2);font-size:15px;text-align:center;max-width:70ch;padding-inline:8px}
+.lb button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line2);background:rgba(17,28,48,.88);color:var(--fg);font:400 28px/1 var(--sans);cursor:pointer;margin:0 12px;display:grid;place-items:center}
+.lb button:hover,.lb button:focus-visible{border-color:var(--yellow);color:var(--yellow);outline:none}
+.lb .lbx{position:absolute;top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px));margin:0}
+@media (max-width:640px){.lb[open]{grid-template-columns:minmax(0,1fr)}.lb .lbp,.lb .lbn{position:absolute;bottom:max(16px,env(safe-area-inset-bottom,0px));margin:0}.lb .lbp{left:16px}.lb .lbn{right:16px}.lb figure{padding-bottom:84px}}
 
 /* back to top */
 .totop{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:40;width:48px;height:48px;border-radius:50%;border:1px solid var(--line2);background:var(--bg2);color:var(--yellow);display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.35);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s ease,transform .2s ease,visibility 0s linear .2s}
@@ -312,6 +352,7 @@ footer a:hover{color:var(--yellow)}
     </a>
     <nav aria-label="Розділи">
       <a href="#about" data-uk="Про нас" data-en="About">Про нас</a>
+      <a href="#news" id="navnews" hidden data-uk="Новини" data-en="News">Новини</a>
       <a href="#work" data-uk="Партнерство" data-en="Partnership">Партнерство</a>
       <a href="#activities" data-uk="Діяльність" data-en="Our work">Діяльність</a>
       <a href="#projects" data-uk="Проєкти" data-en="Projects">Проєкти</a>
@@ -342,12 +383,12 @@ footer a:hover{color:var(--yellow)}
     </div>
   </section>
 
-  <!-- Impact counters (owner, 20 Oct 2026). Set a number in data-to and in the text; "XXX" until the owner gives it. -->
+  <!-- Impact counters (owner, 20 Oct 2026): set in the admin (content/stats.json); "XXX" while a number is not given. -->
   <section class="stats" aria-label="ГО 07300 у цифрах" data-aria-uk="ГО 07300 у цифрах" data-aria-en="07300 NGO in numbers">
     <div class="wrap"><div class="st">
-      <div class="s"><b><span class="num" data-to="10">10</span>+</b><span data-uk="років діяльності" data-en="years of activity">років діяльності</span></div>
-      <div class="s"><b><span class="num">XXX</span>+</b><span data-uk="переданих авто" data-en="delivered vehicles">переданих авто</span></div>
-      <div class="s"><b><span class="num">XXX</span>+</b><span data-uk="тонн вантажів" data-en="tons of cargo">тонн вантажів</span></div>
+      <div class="s"><b><span class="num" id="st-years" data-to="10">10</span>+</b><span data-uk="років діяльності" data-en="years of activity">років діяльності</span></div>
+      <div class="s"><b><span class="num" id="st-vehicles">XXX</span>+</b><span data-uk="переданих авто" data-en="delivered vehicles">переданих авто</span></div>
+      <div class="s"><b><span class="num" id="st-tons">XXX</span>+</b><span data-uk="тонн вантажів" data-en="tons of cargo">тонн вантажів</span></div>
     </div></div>
   </section>
 
@@ -366,8 +407,17 @@ footer a:hover{color:var(--yellow)}
         <details class="acc"><summary><span class="aw">07300</span><span class="at" data-uk="Назва та філософія" data-en="The name and the philosophy">Назва та філософія</span><span class="chev" aria-hidden="true"></span></summary><div class="accb"><p data-only="uk">Назва «07300» — це поштовий індекс рідного Вишгорода. А філософія «Люди для людей» була і залишається головним сенсом нашої діяльності — як для нашого міста, так і для всієї України.</p><p data-only="en" hidden>The name “07300” is the postal code of our hometown, Vyshhorod. And the philosophy “People for People” was and remains the main purpose of our work — both for our city and for all of Ukraine.</p></div></details>
         <details class="acc"><summary><span class="aw">2014 · 2022</span><span class="at" data-uk="Історія логотипа" data-en="The story of our logo">Історія логотипа</span><span class="chev" aria-hidden="true"></span></summary><div class="accb"><div class="story"><img class="logoimg" src="" alt="" width="88" height="88"><div><p data-only="uk">Логотип відтворює жовту нарукавну пов’язку зі світловідбивальною смугою та написом «07300», яку засновники й волонтери носили під час нічних чергувань для ідентифікації та розпізнавання. Дотепер зберіглася лише одна така оригінальна пов’язка — як пам’ять про початок нашого шляху у буремні часи. У 2022 році графічний знак адаптували до кольорів українського прапора, зберігши впізнавану світловідбивальну смугу та фірмові цифри як символ безперервної діяльності.</p><p data-only="en" hidden>It reproduces the yellow armband with a reflective stripe and the inscription “07300” that the founders and volunteers wore on night patrols, to be identified and recognised. Only one original armband survives, as a memory of how our path began in turbulent times. In 2022 the sign was adapted to the colours of the Ukrainian flag, keeping the recognisable reflective stripe and the signature numbers as a symbol of continuous work.</p></div></div></div></details>
         <details class="acc"><summary><span class="aw">2014–2022</span><span class="at" data-uk="Ініціативи у Вишгороді" data-en="Initiatives in Vyshhorod">Ініціативи у Вишгороді</span><span class="chev" aria-hidden="true"></span></summary><div class="accb"><p data-only="uk">З 2014 року організація системно підтримувала українських військових у зоні АТО, поранених захисників та цивільне населення, а також стала осередком для соціальних, культурних та екологічних ініціатив у громаді.</p><p data-only="en" hidden>Since 2014 the organisation has systematically supported Ukrainian military personnel in the ATO zone, wounded defenders and the civilian population, and has become a centre for social, cultural and environmental initiatives in the community.</p><p data-only="uk">Протягом років до повномасштабного вторгнення ГО «07300» реалізувала низку важливих проєктів у Вишгороді:</p><p data-only="en" hidden>In the years before the full-scale invasion, NGO “07300” carried out a number of important projects in Vyshhorod:</p><ul data-only="uk"><li><b>Культурно-просвітницький напрям.</b> Організація благодійних концертів, мистецьких вечорів та виступів музичних гуртів і окремих виконавців для згуртування громади.</li><li><b>Правоохоронна та шкільна просвіта.</b> Спільно з відділом поліції з питань неповнолітніх — системні лекції у школах Вишгорода щодо безпеки дітей в інтернеті, кібергігієни та протидії мережевим загрозам і небезпечним підлітковим трендам.</li><li><b>Екологія та довкілля.</b> Просування культури сортування сміття, акції з прибирання рекреаційних зон та популяризація дбайливого ставлення до природи.</li><li><b>Молодіжна політика.</b> Активна робота у складі Молодіжної ради при Вишгородській міській раді, адвокація інтересів містян та розробка програм соціального розвитку громади.</li><li><b>Захист тварин.</b> Збір коштів, закупівля матеріалів, конструювання й виготовлення утеплених дерев’яних будиночків для безпритульних тварин на вулицях міста.</li><li><b>Міські медіапроєкти.</b> Створення та розвиток незалежного некомерційного порталу (vyshgorod.city). Через недобросовісні дії третіх осіб та кіберрейдерство щодо домену роботу сайту довелося призупинити, проте проєкт залишився важливим етапом у розвитку волонтерського медіапростору.</li></ul><ul data-only="en" hidden><li><b>Culture and education.</b> Charity concerts, art evenings and performances by bands and individual artists that bring the community together.</li><li><b>Law enforcement and school education.</b> With the police department for juvenile affairs, regular lectures in Vyshhorod schools on children’s internet safety, cyber hygiene, and countering online threats and dangerous youth trends.</li><li><b>Ecology and environment.</b> Promoting waste sorting, cleaning up recreational areas, and encouraging a respectful attitude to nature.</li><li><b>Youth policy.</b> Active work in the Youth Council of the Vyshhorod City Council, advocating for residents’ interests and developing social programmes for the community.</li><li><b>Animal protection.</b> Fundraising, buying materials, and building insulated wooden houses for stray animals on the city’s streets.</li><li><b>City media projects.</b> Creating and developing an independent non-commercial portal (vyshgorod.city). Because of third parties’ bad faith and the cyber-raiding of its domain, the website had to be suspended; the project nevertheless remained an important milestone for the volunteer media space.</li></ul><p data-only="uk">Усі ці ініціативи мали єдину мету — розвиток рідного міста, розбудову громадянського суспільства, залучення мешканців до активного життя громади та підтримку військових.</p><p data-only="en" hidden>All of these initiatives had a single goal — developing our hometown, building civil society, engaging residents in the life of the community, and supporting the military.</p></div></details>
-        <details class="acc"><summary><span class="aw">2022</span><span class="at" data-uk="Гуманітарне реагування та відбудова" data-en="Humanitarian response and rebuilding">Гуманітарне реагування та відбудова</span><span class="chev" aria-hidden="true"></span></summary><div class="accb"><p><span class="done" data-uk="Завершений проєкт 2022 року" data-en="Completed project (2022)">Завершений проєкт 2022 року</span></p><p data-only="uk">У 2022 році, одразу після деокупації Київщини, команда ГО «07300» реалізувала проєкти з допомоги у відбудові житла, пошкодженого під час бойових дій у Бучі, Ірпені, Гостомелі, Горенці, Мощуні та Вишгороді. Наразі цей напрям закрито, а зусилля організації зосереджені на військовій та медичній логістиці.</p><p data-only="en" hidden>In 2022, right after the de-occupation of the Kyiv region, the NGO “07300” team carried out projects to help rebuild housing damaged in the fighting in Bucha, Irpin, Hostomel, Horenka, Moshchun and Vyshhorod. This direction is now closed; the organisation’s efforts are focused on military and medical logistics.</p></div></details>
+        <details class="acc"><summary><span class="aw">2022</span><span class="at" data-uk="Гуманітарне реагування та відбудова" data-en="Humanitarian response and rebuilding">Гуманітарне реагування та відбудова</span><span class="chev" aria-hidden="true"></span></summary><div class="accb"><p><span class="done" data-uk="Завершений проєкт 2022 року" data-en="Completed project (2022)">Завершений проєкт 2022 року</span></p><p data-only="uk">У 2022 році, одразу після деокупації Київщини, команда ГО «07300» реалізувала проєкти з допомоги у відбудові житла, пошкодженого під час бойових дій у Бучі, Ірпені, Гостомелі, Горенці, Мощуні та Вишгороді. Наразі цей напрям закрито, а зусилля організації зосереджені на військовій та медичній логістиці.</p><p data-only="en" hidden>In 2022, right after the de-occupation of the Kyiv region, the NGO “07300” team carried out projects to help rebuild housing damaged in the fighting in Bucha, Irpin, Hostomel, Horenka, Moshchun and Vyshhorod. This direction is now closed; the organisation’s efforts are focused on military and medical logistics.</p><div class="pics minigal" id="gal2022" hidden></div></div></details>
       </div>
+    </div>
+  </section>
+
+  <!-- Новини: content/news.json, written from the admin (Pages CMS). Hidden while there is none. -->
+  <section id="news" hidden>
+    <div class="wrap">
+      <div class="head"><h2 data-uk="Новини" data-en="News">Новини</h2><div class="rule"></div></div>
+      <div class="newsl" id="newsl"></div>
+      <button type="button" class="btn o more-news" id="morenews" hidden></button>
     </div>
   </section>
 
@@ -425,6 +475,7 @@ footer a:hover{color:var(--yellow)}
   <section id="projects">
     <div class="wrap">
       <div class="head"><h2 data-uk="Наші проєкти" data-en="Our projects">Наші проєкти</h2><div class="rule"></div></div>
+      <div class="projs" id="projs">
       <a class="proj" href="https://heimdall.com.ua" rel="noopener">
         <img src="data:image/webp;base64,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" alt="" width="64" height="64">
         <div class="pb">
@@ -435,6 +486,7 @@ footer a:hover{color:var(--yellow)}
           <span class="go" data-uk="Відкрити →" data-en="Open →">Відкрити →</span>
         </div>
       </a>
+      </div>
     </div>
   </section>
 
@@ -471,8 +523,8 @@ footer a:hover{color:var(--yellow)}
     </div>
   </section>
 
-  <!-- Подяки / acknowledgements (owner, 20 Oct 2026): put the scans at img/thanks/01.jpg, 02.jpg, 03.jpg … in order;
-       the section and its menu link appear by themselves as soon as 01.jpg is there. -->
+  <!-- Подяки / acknowledgements (owner, 20 Oct 2026): added in the admin (content/thanks.json);
+       the section and its menu link appear by themselves with the first one. -->
   <section id="thanks" hidden>
     <div class="wrap">
       <div class="head"><h2 data-uk="Подяки" data-en="Acknowledgements &amp; certificates">Подяки</h2><div class="rule"></div></div>
@@ -564,6 +616,13 @@ footer a:hover{color:var(--yellow)}
   </section>
 </main>
 
+<dialog class="lb" id="lb" aria-label="Фото" data-aria-uk="Фото" data-aria-en="Photo">
+  <button type="button" class="lbp" id="lbp" aria-label="Попереднє фото" data-aria-uk="Попереднє фото" data-aria-en="Previous photo">‹</button>
+  <figure><img id="lbimg" alt=""><figcaption id="lbcap"></figcaption></figure>
+  <button type="button" class="lbn" id="lbn" aria-label="Наступне фото" data-aria-uk="Наступне фото" data-aria-en="Next photo">›</button>
+  <button type="button" class="lbx" id="lbx" aria-label="Закрити" data-aria-uk="Закрити" data-aria-en="Close">×</button>
+</dialog>
+
 <button type="button" class="totop" id="totop" aria-label="Нагору" data-aria-uk="Нагору" data-aria-en="Back to top"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg></button>
 
 <footer>
@@ -616,27 +675,12 @@ footer a:hover{color:var(--yellow)}
     fetch(d.getAttribute('href'), { method: 'HEAD' }).then(function(r){ var t = r.headers.get('content-type') || ''; if (!r.ok || t.indexOf('pdf') < 0) soon(); }, soon);
   });
 
-  /* gallery: shown only when photos exist in img/gallery/ */
-  var grid = document.getElementById('grid'), sec = document.getElementById('gallery'), nav = document.getElementById('navgal');
-  for (var i = 1; i <= 6; i++) (function(n){
-    var img = new Image();
-    img.onload = function(){ var f = document.createElement('figure'); f.appendChild(img); grid.appendChild(f); sec.hidden = false; nav.hidden = false; };
-    img.alt = ''; img.src = 'img/gallery/0' + n + '.jpg';
-  })(i);
-
-  /* Подяки: img/thanks/01.jpg, 02.jpg … read in order until the first one missing; nothing there, nothing shown */
-  var thx = document.getElementById('thx'), tsec = document.getElementById('thanks'), tnav = document.getElementById('navthx');
-  (function next(n){
-    if (n > 60) return;
-    var src = 'img/thanks/' + (n < 10 ? '0' : '') + n + '.jpg', img = new Image();
-    img.onload = function(){ var a = document.createElement('a'); a.href = src; a.target = '_blank'; a.rel = 'noopener'; img.alt = ''; img.loading = 'lazy';
-      a.appendChild(img); thx.appendChild(a); tsec.hidden = false; tnav.hidden = false; next(n + 1); };
-    img.src = src;
-  })(1);
-
   /* the counters count up once, when they come into view (not with reduced motion); "XXX" stays as written */
-  var nums = document.querySelectorAll('.num[data-to]');
-  if (nums.length && 'IntersectionObserver' in window && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+  var counted = false;
+  function counters(){
+    if (counted) return; counted = true;
+    var nums = document.querySelectorAll('.num[data-to]');
+    if (!nums.length || !('IntersectionObserver' in window) || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
     nums.forEach(function(e){ e.textContent = '0'; });
     var io = new IntersectionObserver(function(es){ es.forEach(function(en){ if (!en.isIntersecting) return; io.unobserve(en.target);
       var el = en.target, to = +el.getAttribute('data-to'), t0 = null;
@@ -644,6 +688,157 @@ footer a:hover{color:var(--yellow)}
       requestAnimationFrame(step); }); }, { threshold: .4 });
     nums.forEach(function(e){ io.observe(e); });
   }
+
+  /* content from the admin (Pages CMS -> private repo -> content/*.json here, photos in img/u/ without any metadata).
+     Everything is written with textContent; a photo is only one of ours (img/u/...webp), a link only http(s).
+     A missing file leaves the page as it is written. */
+  function L(){ return document.documentElement.lang === 'en' ? 'en' : 'uk'; }
+  function tr(o, k){ var u = String(o[k + '_uk'] || '').trim(), e = String(o[k + '_en'] || '').trim(); return { uk: u || e, en: e || u }; }
+  function mk(tag, cls, t){ var e = document.createElement(tag); if (cls) e.className = cls; if (t) { e.setAttribute('data-uk', t.uk); e.setAttribute('data-en', t.en); e.textContent = t[L()]; } return e; }
+  function paras(parent, t){
+    ['uk', 'en'].forEach(function(l){
+      var box = document.createElement('div'); box.className = 'txt'; box.setAttribute('data-only', l); box.hidden = l !== L();
+      String(t[l] || '').split(/\n\s*\n/).forEach(function(p){ p = p.trim(); if (!p) return; var pe = document.createElement('p');
+        p.split('\n').forEach(function(x, i){ if (i) pe.appendChild(document.createElement('br')); pe.appendChild(document.createTextNode(x)); }); box.appendChild(pe); });
+      if (box.childNodes.length) parent.appendChild(box);
+    });
+  }
+  function pic(p){ return p && /^img\/u\/[0-9a-f]{20}\.webp$/.test(p.src || '') && /^img\/u\/[0-9a-f]{20}-s\.webp$/.test(p.thumb || '') ? p : null; }
+  function link(u){ u = String(u || '').trim(); return /^https?:\/\/[^\s<>"']+$/i.test(u) ? u : ''; }
+  function when(d){ var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(d || ''); if (!m) return null; var x = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+    function f(loc){ try { return new Intl.DateTimeFormat(loc, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(x); } catch (e) { return d.slice(0, 10); } }
+    return { uk: f('uk-UA'), en: f('en-GB') }; }
+  function show(id){ var e = document.getElementById(id); if (e) e.hidden = false; }
+
+  /* the photo viewer */
+  var lb = document.getElementById('lb'), lbimg = document.getElementById('lbimg'), lbcap = document.getElementById('lbcap'), lbset = [], lbat = 0;
+  function lbShow(i){ lbat = (i + lbset.length) % lbset.length; var it = lbset[lbat], c = it.cap ? it.cap[L()] : '';
+    lbimg.src = it.p.src; lbimg.alt = c; lbcap.textContent = c; lbcap.hidden = !c;
+    document.getElementById('lbp').hidden = document.getElementById('lbn').hidden = lbset.length < 2; }
+  function lbOpen(list, i){ if (!lb || !lb.showModal) { window.open(list[i].p.src, '_blank', 'noopener'); return; } lbset = list; lbShow(i); if (!lb.open) lb.showModal(); }
+  if (lb && lb.showModal) {
+    document.getElementById('lbp').onclick = function(){ lbShow(lbat - 1); };
+    document.getElementById('lbn').onclick = function(){ lbShow(lbat + 1); };
+    document.getElementById('lbx').onclick = function(){ lb.close(); };
+    lb.addEventListener('click', function(e){ if (e.target === lb || e.target.tagName === 'FIGURE') lb.close(); });
+    lb.addEventListener('keydown', function(e){ if (e.key === 'ArrowLeft') lbShow(lbat - 1); else if (e.key === 'ArrowRight') lbShow(lbat + 1); });
+    var x0 = null;
+    lbimg.addEventListener('pointerdown', function(e){ x0 = e.clientX; });
+    lbimg.addEventListener('pointerup', function(e){ if (x0 !== null && Math.abs(e.clientX - x0) > 50 && lbset.length > 1) lbShow(lbat + (e.clientX < x0 ? 1 : -1)); x0 = null; });
+    lb.addEventListener('close', function(){ lbimg.removeAttribute('src'); });
+  }
+  function thumbs(box, list, full){
+    list.forEach(function(it, i){
+      var b = document.createElement('button'), im = document.createElement('img'), c = it.cap && it.cap.uk ? it.cap : null;
+      b.type = 'button'; b.className = 'ph';
+      b.setAttribute('data-aria-uk', c ? c.uk : 'Відкрити фото'); b.setAttribute('data-aria-en', c ? c.en : 'Open photo'); b.setAttribute('aria-label', b.getAttribute('data-aria-' + L()));
+      im.src = full ? it.p.src : it.p.thumb; im.alt = ''; im.loading = 'lazy'; im.decoding = 'async';
+      if (it.p.w && it.p.h) { im.width = it.p.w; im.height = it.p.h; }
+      b.appendChild(im); b.onclick = function(){ lbOpen(list, i); }; box.appendChild(b);
+    });
+  }
+
+  var R = {
+    stats: function(d){
+      [['years', 'st-years'], ['vehicles', 'st-vehicles'], ['tons', 'st-tons']].forEach(function(k){
+        var e = document.getElementById(k[1]), v = d[k[0]]; if (!e) return;
+        if (typeof v === 'number' && v >= 0) { e.setAttribute('data-to', String(v)); e.textContent = String(v); } else { e.removeAttribute('data-to'); e.textContent = 'XXX'; }
+      });
+    },
+    gallery: function(d){
+      var all = (d.items || []).map(function(it){ return { p: pic(it.image), cap: tr(it, 'caption'), album: it.album }; }).filter(function(x){ return x.p; });
+      var gen = all.filter(function(x){ return x.album !== 'rebuild2022'; }), reb = all.filter(function(x){ return x.album === 'rebuild2022'; });
+      if (gen.length) { thumbs(document.getElementById('grid'), gen); show('gallery'); show('navgal'); }
+      if (reb.length) { thumbs(document.getElementById('gal2022'), reb); show('gal2022'); }
+    },
+    thanks: function(d){
+      var box = document.getElementById('thx');
+      var list = (d.items || []).map(function(it){ var t = tr(it, 'title'), f = tr(it, 'from'), y = String(it.date || '').slice(0, 4);
+        return { p: pic(it.image), t: t, f: f, y: y, cap: { uk: [t.uk, f.uk, y].filter(Boolean).join(' · '), en: [t.en, f.en, y].filter(Boolean).join(' · ') } }; })
+        .filter(function(x){ return x.p; });
+      if (!list.length) return;
+      list.forEach(function(it, i){
+        var fig = document.createElement('figure'), tmp = document.createElement('div'); thumbs(tmp, [it]); var b = tmp.firstChild;
+        b.onclick = function(){ lbOpen(list, i); }; fig.appendChild(b);
+        var fc = document.createElement('figcaption');
+        if (it.t.uk) fc.appendChild(mk('b', '', it.t)); if (it.f.uk) fc.appendChild(mk('span', '', it.f)); if (it.y) fc.appendChild(mk('span', '', { uk: it.y, en: it.y }));
+        if (fc.childNodes.length) fig.appendChild(fc);
+        box.appendChild(fig);
+      });
+      show('thanks'); show('navthx');
+    },
+    news: function(d){
+      var list = (d.items || []).filter(function(it){ return it.title_uk || it.title_en; }), SHOWN = 3;
+      if (!list.length) return;
+      list.sort(function(a, b){ return String(b.date || '').localeCompare(String(a.date || '')); });
+      var box = document.getElementById('newsl'), more = document.getElementById('morenews');
+      list.forEach(function(it, i){
+        var a = document.createElement('article'), t = tr(it, 'title'), w = when(it.date); a.className = 'nw'; if (i >= SHOWN) a.hidden = true;
+        if (w) { var tm = mk('time', '', w); tm.setAttribute('datetime', String(it.date).slice(0, 10)); a.appendChild(tm); }
+        a.appendChild(mk('h3', '', t)); paras(a, tr(it, 'text'));
+        var ps = (it.photos || []).map(function(p){ return { p: pic(p), cap: t }; }).filter(function(x){ return x.p; });
+        if (ps.length) { var g = document.createElement('div'); g.className = 'pics'; thumbs(g, ps); a.appendChild(g); }
+        box.appendChild(a);
+      });
+      if (list.length > SHOWN) {
+        more.setAttribute('data-uk', 'Усі новини (' + list.length + ')'); more.setAttribute('data-en', 'All news (' + list.length + ')'); more.textContent = more.getAttribute('data-' + L());
+        more.hidden = false; more.onclick = function(){ box.querySelectorAll('.nw[hidden]').forEach(function(e){ e.hidden = false; }); more.hidden = true; };
+      }
+      show('news'); show('navnews');
+    },
+    projects: function(d){
+      var list = (d.items || []).filter(function(it){ return String(it.title || '').trim(); });
+      if (!list.length) return;
+      var box = document.getElementById('projs'), old = box.querySelector('img'), hd = old ? old.getAttribute('src') : '';
+      box.textContent = '';
+      list.forEach(function(it){
+        var u = link(it.url), card = document.createElement(u ? 'a' : 'div'), lg = pic(it.logo), im, pb = document.createElement('div');
+        card.className = 'proj'; if (u) { card.href = u; card.rel = 'noopener'; }
+        if (lg || (hd && /^https?:\/\/(www\.)?heimdall\.com\.ua(\/|$)/i.test(u))) { im = document.createElement('img'); im.src = lg ? lg.thumb : hd; im.alt = ''; im.width = 64; im.height = 64; }
+        else { im = document.createElement('span'); im.className = 'mono'; im.setAttribute('aria-hidden', 'true'); im.textContent = String(it.title).trim().charAt(0).toUpperCase(); }
+        card.appendChild(im); pb.className = 'pb';
+        var tag = tr(it, 'tag'), note = tr(it, 'note'), h = document.createElement('h3');
+        if (tag.uk) pb.appendChild(mk('p', 'tag', tag));
+        h.textContent = String(it.title).trim(); pb.appendChild(h);
+        paras(pb, tr(it, 'text'));
+        if (note.uk) pb.appendChild(mk('p', 'by', note));
+        if (u) pb.appendChild(mk('span', 'go', { uk: 'Відкрити →', en: 'Open →' }));
+        card.appendChild(pb); box.appendChild(card);
+      });
+    },
+    blocks: function(d){
+      var before = document.getElementById('transparency'), main = before && before.parentNode;
+      (d.items || []).forEach(function(it){
+        var kind = it.type; if (!main || ['text', 'text_photo', 'photos', 'button'].indexOf(kind) < 0) return;
+        var sec = document.createElement('section'), w = document.createElement('div'), title = tr(it, 'title'), has = false;
+        sec.className = 'blk'; w.className = 'wrap'; sec.appendChild(w);
+        if (title.uk) { var head = document.createElement('div'), rule = document.createElement('div'); head.className = 'head'; rule.className = 'rule'; head.appendChild(mk('h2', '', title)); head.appendChild(rule); w.appendChild(head); }
+        if (kind === 'text' || kind === 'button') { paras(w, tr(it, 'text')); has = w.querySelector('.txt') !== null; }
+        if (kind === 'button') { var u = link(it.url), lab = tr(it, 'label'); if (u && lab.uk) { var btn = mk('a', 'btn y', lab); btn.href = u; btn.rel = 'noopener'; w.appendChild(btn); has = true; } }
+        if (kind === 'text_photo') {
+          var g = document.createElement('div'), tx = document.createElement('div'), p = pic(it.image); g.className = 'tp' + (it.side === 'right' ? ' right' : '');
+          if (p) { var fi = document.createElement('div'); fi.className = 'tpi'; thumbs(fi, [{ p: p, cap: title }], true); g.appendChild(fi); has = true; }
+          paras(tx, tr(it, 'text')); if (tx.childNodes.length) { g.appendChild(tx); has = true; }
+          w.appendChild(g);
+        }
+        if (kind === 'photos') {
+          var ps = (it.images || []).map(function(x){ return { p: pic(x), cap: title }; }).filter(function(x){ return x.p; });
+          if (ps.length) { var pg = document.createElement('div'); pg.className = 'pics big'; thumbs(pg, ps); w.appendChild(pg); has = true; }
+        }
+        if (has) main.insertBefore(sec, before);
+      });
+    }
+  };
+  var NAMES = ['stats', 'gallery', 'thanks', 'news', 'projects', 'blocks'];
+  function get(n){
+    if (!window.fetch || !window.Promise || location.protocol === 'file:') return Promise.resolve(null);
+    return fetch('content/' + n + '.json', { cache: 'no-cache' }).then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; });
+  }
+  setTimeout(counters, 1500);
+  if (window.Promise) Promise.all(NAMES.map(get)).then(function(ds){
+    ds.forEach(function(d, i){ if (d && typeof d === 'object') try { R[NAMES[i]](d); } catch (e) { if (window.console) console.warn('content/' + NAMES[i] + '.json:', e); } });
+    apply(document.documentElement.lang); counters();
+  }, counters); else counters();
 
   /* back to top: shown once the reader is well down the page */
   var top = document.getElementById('totop'), shown = false;
