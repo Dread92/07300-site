@@ -270,7 +270,34 @@ footer a:hover{color:var(--yellow)}
 .st .s{background:var(--bg);padding:18px 16px;display:grid;gap:6px;align-content:start;min-width:0}
 .st b{font:800 clamp(28px,6vw,46px)/1 var(--display);color:var(--yellow);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 .st .s>span{color:var(--fg2);font-size:clamp(13px,1.8vw,15px);line-height:1.3}
+.st b{white-space:nowrap}
+@media (max-width:640px){.st{grid-template-columns:repeat(2,minmax(0,1fr))}.st .s:last-child{grid-column:1/-1}}
 @media (max-width:380px){.st .s{padding:14px 10px}}
+
+.vids{display:flex;gap:16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:16px;margin-inline:-16px;padding:2px 16px 12px;scrollbar-width:thin;scrollbar-color:var(--line2) transparent;-webkit-overflow-scrolling:touch}
+.vids:focus-visible{outline:2px solid var(--yellow);outline-offset:2px}
+.vid{flex:0 0 min(84vw,400px);scroll-snap-align:start;min-width:0}
+.vbtn{position:relative;display:block;aspect-ratio:16/9;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#000}
+.vbtn img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease,opacity .35s ease;opacity:.9}
+.vbtn:hover img,.vbtn:focus-visible img{transform:scale(1.04);opacity:1}
+.vbtn:focus-visible{outline:2px solid var(--yellow);outline-offset:2px}
+.vp{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.vp i{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--yellow);box-shadow:0 6px 20px rgba(0,0,0,.45);transition:transform .2s ease}
+.vbtn:hover .vp i{transform:scale(1.08)}
+.vp svg{width:26px;height:26px;margin-left:4px;fill:var(--yellow-ink)}
+.vid iframe{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:var(--r);background:#000}
+.vnav{display:flex;align-items:center;gap:10px;margin-top:14px}
+.vnav button{width:46px;height:46px;display:grid;place-items:center;border:1px solid var(--line2);border-radius:var(--r);background:transparent;color:var(--fg);cursor:pointer}
+.vnav button:hover:not(:disabled){background:var(--bg3)}
+.vnav button:disabled{opacity:.35;cursor:default}
+.vnav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.vnav .cnt{margin-left:6px;color:var(--fg3);font:600 13px/1 var(--sans);font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:reduce){.vbtn img,.vp i{transition:none}.vbtn:hover img{transform:none}}
+
+.hero .photo{transform:translate3d(0,var(--pb,0px),0) scale(1.12);will-change:transform}
+.hero.nophoto::after{transform:translate3d(0,var(--pb,0px),0)}
+.hero .wrap{transform:translate3d(0,var(--pc,0px),0);opacity:var(--po,1)}
+@media (prefers-reduced-motion:reduce){.hero .photo{transform:none}.hero.nophoto::after{transform:none}.hero .wrap{transform:none;opacity:1}}
 
 .thx{display:grid;gap:16px 12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
 .thx figure{margin:0;display:grid;gap:8px;align-content:start}
@@ -336,6 +363,7 @@ footer a:hover{color:var(--yellow)}
       <a href="#work" data-uk="Партнерство" data-en="Partnership">Партнерство</a>
       <a href="#activities" data-uk="Діяльність" data-en="Our work">Діяльність</a>
       <a href="#projects" data-uk="Проєкти" data-en="Projects">Проєкти</a>
+      <a href="#video" data-uk="Відео" data-en="Videos">Відео</a>
       <a href="#transparency" data-uk="Прозорість" data-en="Transparency">Прозорість</a>
       <a href="#thanks" id="navthx" hidden data-uk="Подяки" data-en="Acknowledgements">Подяки</a>
       <a href="#gallery" id="navgal" hidden data-uk="Галерея" data-en="Gallery">Галерея</a>
@@ -365,9 +393,9 @@ footer a:hover{color:var(--yellow)}
 
   <section class="stats" aria-label="ГО 07300 у цифрах" data-aria-uk="ГО 07300 у цифрах" data-aria-en="07300 NGO in numbers">
     <div class="wrap"><div class="st">
-      <div class="s"><b><span class="num" id="st-years" data-to="10">10</span>+</b><span data-uk="років діяльності" data-en="years of activity">років діяльності</span></div>
-      <div class="s"><b><span class="num" id="st-vehicles">XXX</span>+</b><span data-uk="переданих авто" data-en="delivered vehicles">переданих авто</span></div>
-      <div class="s"><b><span class="num" id="st-tons">XXX</span>+</b><span data-uk="тонн вантажів" data-en="tons of cargo">тонн вантажів</span></div>
+      <div class="s"><b><span class="num" id="st-years" data-to="12">12</span>+</b><span data-uk="років діяльності" data-en="years of activity">років діяльності</span></div>
+      <div class="s"><b><span class="num" id="st-vehicles" data-to="10">10</span>+</b><span data-uk="переданих авто" data-en="delivered vehicles">переданих авто</span></div>
+      <div class="s"><b><span class="num" id="st-kg" data-to="20000">20 000</span>+</b><span data-uk="кг вантажів, запчастин і продуктів" data-en="kg of cargo, spare parts and food">кг вантажів, запчастин і продуктів</span></div>
     </div></div>
   </section>
 
@@ -465,6 +493,24 @@ footer a:hover{color:var(--yellow)}
         </div>
       </a>
       </div>
+    </div>
+  </section>
+
+  <section id="video">
+    <div class="wrap">
+      <div class="head"><h2 data-uk="Відео" data-en="Videos">Відео</h2><div class="rule"></div></div>
+      <div class="vids" id="vids" tabindex="0" role="region" aria-label="Відео" data-aria-uk="Відео" data-aria-en="Videos">
+        <div class="vid"><a class="vbtn" href="https://www.youtube.com/watch?v=oTcXGJYLp-s" target="_blank" rel="noopener" data-yt="oTcXGJYLp-s" data-aria-uk="Відео 1 з 9: відтворити" data-aria-en="Video 1 of 9: play" aria-label="Відео 1 з 9: відтворити"><img src="https://i.ytimg.com/vi/oTcXGJYLp-s/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="vp" aria-hidden="true"><i><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></i></span></a></div>
+        <div class="vid"><a class="vbtn" href="https://www.youtube.com/watch?v=NYpvYMhV_GM" target="_blank" rel="noopener" data-yt="NYpvYMhV_GM" data-aria-uk="Відео 2 з 9: відтворити" data-aria-en="Video 2 of 9: play" aria-label="Відео 2 з 9: відтворити"><img src="https://i.ytimg.com/vi/NYpvYMhV_GM/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="vp" aria-hidden="true"><i><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></i></span></a></div>
+        <div class="vid"><a class="vbtn" href="https://www.youtube.com/watch?v=jM0pbT371FY" target="_blank" rel="noopener" data-yt="jM0pbT371FY" data-aria-uk="Відео 3 з 9: відтворити" data-aria-en="Video 3 of 9: play" aria-label="Відео 3 з 9: відтворити"><img src="https://i.ytimg.com/vi/jM0pbT371FY/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="vp" aria-hidden="true"><i><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></i></span></a></div>
+        <div class="vid"><a class="vbtn" href="https://www.youtube.com/watch?v=NLA1ZuSC-2E" target="_blank" rel="noopener" data-yt="NLA1ZuSC-2E" data-aria-uk="Відео 4 з 9: відтворити" data-aria-en="Video 4 of 9: play" aria-label="Відео 4 з 9: відтворити"><img src="https://i.ytimg.com/vi/NLA1ZuSC-2E/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="vp" aria-hidden="true"><i><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></i></span></a></div>
+        <div class="vid"><a class="vbtn" href="https://www.youtube.com/watch?v=Wynvj1fTNCU" target="_blank" rel="noopener" data-yt="Wynvj1fTNCU" data-aria-uk="Відео 5 з 9: відтворити" data-aria-en="Video 5 of 9: play" aria-label="Відео 5 з 9: відтворити"><img src="https://i.ytimg.com/vi/Wynvj1fTNCU/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="vp" aria-hidden="true"><i><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></i></span></a></div>
+        <div class="vid"><a class="vbtn" href="https://www.youtube.com/watch?v=AnZTvw7Gq3g" target="_blank" rel="noopener" data-yt="AnZTvw7Gq3g" data-aria-uk="Відео 6 з 9: відтворити" data-aria-en="Video 6 of 9: play" aria-label="Відео 6 з 9: відтворити"><img src="https://i.ytimg.com/vi/AnZTvw7Gq3g/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="vp" aria-hidden="true"><i><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></i></span></a></div>
+        <div class="vid"><a class="vbtn" href="https://www.youtube.com/watch?v=xmc5-Ne5SCU" target="_blank" rel="noopener" data-yt="xmc5-Ne5SCU" data-aria-uk="Відео 7 з 9: відтворити" data-aria-en="Video 7 of 9: play" aria-label="Відео 7 з 9: відтворити"><img src="https://i.ytimg.com/vi/xmc5-Ne5SCU/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="vp" aria-hidden="true"><i><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></i></span></a></div>
+        <div class="vid"><a class="vbtn" href="https://www.youtube.com/watch?v=uhhC7NoC4Lg" target="_blank" rel="noopener" data-yt="uhhC7NoC4Lg" data-aria-uk="Відео 8 з 9: відтворити" data-aria-en="Video 8 of 9: play" aria-label="Відео 8 з 9: відтворити"><img src="https://i.ytimg.com/vi/uhhC7NoC4Lg/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="vp" aria-hidden="true"><i><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></i></span></a></div>
+        <div class="vid"><a class="vbtn" href="https://www.youtube.com/watch?v=qjtXhXIRAQw" target="_blank" rel="noopener" data-yt="qjtXhXIRAQw" data-aria-uk="Відео 9 з 9: відтворити" data-aria-en="Video 9 of 9: play" aria-label="Відео 9 з 9: відтворити"><img src="https://i.ytimg.com/vi/qjtXhXIRAQw/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"><span class="vp" aria-hidden="true"><i><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></i></span></a></div>
+      </div>
+      <div class="vnav"><button type="button" id="vprev" aria-label="Попереднє відео" data-aria-uk="Попереднє відео" data-aria-en="Previous video"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" id="vnext" aria-label="Наступне відео" data-aria-uk="Наступне відео" data-aria-en="Next video"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button><span class="cnt" id="vcnt" aria-hidden="true"></span></div>
     </div>
   </section>
 
@@ -644,6 +690,7 @@ footer a:hover{color:var(--yellow)}
     fetch(d.getAttribute('href'), { method: 'HEAD' }).then(function(r){ var t = r.headers.get('content-type') || ''; if (!r.ok || t.indexOf('pdf') < 0) soon(); }, soon);
   });
 
+  function fmt(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '\u202f'); }
   var counted = false;
   function counters(){
     if (counted) return; counted = true;
@@ -651,8 +698,8 @@ footer a:hover{color:var(--yellow)}
     if (!nums.length || !('IntersectionObserver' in window) || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
     nums.forEach(function(e){ e.textContent = '0'; });
     var io = new IntersectionObserver(function(es){ es.forEach(function(en){ if (!en.isIntersecting) return; io.unobserve(en.target);
-      var el = en.target, to = +el.getAttribute('data-to'), t0 = null;
-      function step(t){ if (t0 === null) t0 = t; var k = Math.min(1, (t - t0) / 900); el.textContent = String(Math.round(to * (1 - Math.pow(1 - k, 3)))); if (k < 1) requestAnimationFrame(step); }
+      var el = en.target, to = +el.getAttribute('data-to'), t0 = null, dur = to >= 1000 ? 2600 : 1600;
+      function step(t){ if (t0 === null) t0 = t; var k = Math.min(1, (t - t0) / dur); el.textContent = fmt(Math.round(to * (1 - Math.pow(1 - k, 4)))); if (k < 1) requestAnimationFrame(step); }
       requestAnimationFrame(step); }); }, { threshold: .4 });
     nums.forEach(function(e){ io.observe(e); });
   }
@@ -704,9 +751,9 @@ footer a:hover{color:var(--yellow)}
 
   var R = {
     stats: function(d){
-      [['years', 'st-years'], ['vehicles', 'st-vehicles'], ['tons', 'st-tons']].forEach(function(k){
-        var e = document.getElementById(k[1]), v = d[k[0]]; if (!e) return;
-        if (typeof v === 'number' && v >= 0) { e.setAttribute('data-to', String(v)); e.textContent = String(v); } else { e.removeAttribute('data-to'); e.textContent = 'XXX'; }
+      [['years', 'st-years', 1], ['vehicles', 'st-vehicles', 1], ['tons', 'st-kg', 1000], ['kg', 'st-kg', 1]].forEach(function(k){
+        var e = document.getElementById(k[1]), v = d[k[0]]; if (!e || typeof v !== 'number' || v < 0) return;
+        v = Math.round(v * k[2]); e.setAttribute('data-to', String(v)); e.textContent = fmt(v);
       });
     },
     gallery: function(d){
@@ -803,6 +850,44 @@ footer a:hover{color:var(--yellow)}
     ds.forEach(function(d, i){ if (d && typeof d === 'object') try { R[NAMES[i]](d); } catch (e) { if (window.console) console.warn('content/' + NAMES[i] + '.json:', e); } });
     apply(document.documentElement.lang); counters();
   }, counters); else counters();
+
+  var rmq = window.matchMedia ? matchMedia('(prefers-reduced-motion: reduce)') : null;
+  function still(){ return !!(rmq && rmq.matches); }
+
+  (function(){
+    var box = document.getElementById('vids'); if (!box) return;
+    var pv = document.getElementById('vprev'), nx = document.getElementById('vnext'), cnt = document.getElementById('vcnt');
+    var cards = box.querySelectorAll('.vid'), playing = null;
+    function stop(){ if (!playing) return; playing.f.parentNode.replaceChild(playing.a, playing.f); playing = null; }
+    box.addEventListener('click', function(e){
+      var a = e.target.closest('a.vbtn'); if (!a) return; e.preventDefault(); stop();
+      var f = document.createElement('iframe'), id = a.getAttribute('data-yt');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0&playsinline=1';
+      f.title = a.getAttribute('aria-label'); f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true;
+      f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      a.parentNode.replaceChild(f, a); playing = { a: a, f: f };
+    });
+    box.querySelectorAll('img').forEach(function(im){ function gone(){ im.style.visibility = 'hidden'; } if (im.complete && !im.naturalWidth) gone(); else im.addEventListener('error', gone); });
+    function width(){ return cards.length ? cards[0].getBoundingClientRect().width + 16 : 300; }
+    function go(d){ box.scrollBy({ left: d * width(), behavior: still() ? 'auto' : 'smooth' }); }
+    pv.addEventListener('click', function(){ go(-1); }); nx.addEventListener('click', function(){ go(1); });
+    box.addEventListener('keydown', function(e){ if (e.key === 'ArrowRight') { e.preventDefault(); go(1); } else if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); } });
+    function upd(){ var max = box.scrollWidth - box.clientWidth; pv.disabled = box.scrollLeft <= 4; nx.disabled = box.scrollLeft >= max - 4;
+      var i = nx.disabled ? cards.length : Math.min(cards.length, Math.round(box.scrollLeft / width()) + 1); cnt.textContent = i + ' / ' + cards.length; }
+    box.addEventListener('scroll', upd, { passive: true }); window.addEventListener('resize', upd); upd();
+  })();
+
+  (function(){
+    var h = document.getElementById('hero'); if (!h || !window.requestAnimationFrame) return;
+    var due = false;
+    function paint(){ due = false; var y = Math.max(0, window.scrollY), H = h.offsetHeight || 1;
+      if (still()) { h.style.removeProperty('--pb'); h.style.removeProperty('--pc'); h.style.removeProperty('--po'); return; }
+      if (y > H * 1.5) return;
+      h.style.setProperty('--pb', (y * 0.4).toFixed(1) + 'px'); h.style.setProperty('--pc', (y * 0.15).toFixed(1) + 'px');
+      h.style.setProperty('--po', Math.max(0, 1 - y / (H * 1.1)).toFixed(3)); }
+    function ask(){ if (!due) { due = true; requestAnimationFrame(paint); } }
+    window.addEventListener('scroll', ask, { passive: true }); window.addEventListener('resize', ask); ask();
+  })();
 
   var top = document.getElementById('totop'), shown = false;
   function onScroll(){ var v = window.scrollY > 700; if (v !== shown) { shown = v; top.classList.toggle('show', v); } }
